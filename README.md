@@ -39,9 +39,19 @@ and Maps JavaScript API enabled. `config.js` is gitignored.
 
 ## Deployment
 
+Live at https://nyc-subway-planner.netlify.app. Every push to `main` deploys
+automatically (Netlify clones the repo with a read-only deploy key, triggered by a
+GitHub push webhook).
+
 `netlify.toml` publishes the planner as `index.html` and writes `config.js` from the
-`GOOGLE_MAPS_API_KEY` environment variable when it's set; without it the site uses
-OpenStreetMap search.
+`GOOGLE_MAPS_API_KEY` environment variable when it's set (Project configuration →
+Environment variables); without it the live site uses OpenStreetMap search.
+
+To deploy local changes without pushing:
+
+```bash
+npx netlify-cli deploy --build --prod
+```
 
 ## Network data
 
